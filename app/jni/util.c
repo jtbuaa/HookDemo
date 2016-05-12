@@ -254,7 +254,7 @@ static symtab_t load_symtab(char *filename)
 
 static int load_memmap(pid_t pid, struct mm *mm, int *nmmp)
 {
-	char raw[90000]; // increase this if needed for larger "maps"
+	char raw[190000]; // increase this if needed for larger "maps"
 	char name[MAX_NAME_LEN];
 	char *p;
 	unsigned long start, end;
@@ -343,6 +343,7 @@ static int find_libname(char *libn, char *name, int len, unsigned long *start, s
 	struct mm *m;
 	char *p;
 	for (i = 0, m = mm; i < nmm; i++, m++) {
+	    LOGI("name %s", m->name);
 		if (!strcmp(m->name, MEMORY_ONLY))
 			continue;
 		p = strrchr(m->name, '/');
@@ -408,7 +409,7 @@ static int lookup_func_sym(symtab_t s, char *name, unsigned long *val)
 
 int find_name(pid_t pid, char *name, char *libn, unsigned long *addr)
 {
-	struct mm mm[1000];
+	struct mm mm[10000];
 	unsigned long libcaddr;
 	int nmm;
 	char libc[1024];
@@ -438,7 +439,7 @@ int find_name(pid_t pid, char *name, char *libn, unsigned long *addr)
 
 int find_libbase(pid_t pid, char *libn, unsigned long *addr)
 {
-	struct mm mm[1000];
+	struct mm mm[10000];
 	unsigned long libcaddr;
 	int nmm;
 	char libc[1024];

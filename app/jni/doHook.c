@@ -4,6 +4,8 @@
 #include <dlfcn.h>
 #include <sys/types.h>
 
+#include "epoll.h"
+
 #define LOG_TAG "ThomasKing"
 #define LOGI(fmt, args...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, fmt, ##args)
 
@@ -150,6 +152,7 @@ JNIEXPORT void JNICALL Java_demo_hook_hookdemo_MainActivity_doHook(JNIEnv *env, 
 		LOGI("dlopen [%s]", dlerror());
 		return ;
 	}
-	HookAll();
+	//HookAll();
 	LOGI("End");
+	my_init();
 }

@@ -42,7 +42,7 @@
 
 // this file is going to be compiled into a thumb mode binary
 
-void __attribute__ ((constructor)) my_init(void);
+//void __attribute__ ((constructor)) my_init(void);
 
 static struct hook_t eph;
 

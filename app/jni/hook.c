@@ -34,9 +34,8 @@
 
 void inline hook_cacheflush(unsigned int begin, unsigned int end)
 {
-// FixMe: build fail in android studio, so comment it
-/*	const int syscall = 0xf0002;
-	__asm __volatile (
+	const int syscall = 0xf0002;
+	__asm__ __volatile__ (
 		"mov	 r0, %0\n"			
 		"mov	 r1, %1\n"
 		"mov	 r7, %2\n"
@@ -45,7 +44,7 @@ void inline hook_cacheflush(unsigned int begin, unsigned int end)
 		:
 		:	"r" (begin), "r" (end), "r" (syscall)
 		:	"r0", "r1", "r7"
-		);*/
+		);
 }
 
 int hook_direct(struct hook_t *h, unsigned int addr, void *hookf)

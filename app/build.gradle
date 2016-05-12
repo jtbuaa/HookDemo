@@ -35,10 +35,11 @@ android {
     task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
         def ndkDir = android.ndkDirectory
         commandLine "$ndkDir/ndk-build",
-                '-C', file('jni').absolutePath, // Change src/main/jni the relative path to your jni source
-                '-j', Runtime.runtime.availableProcessors(),
-                'all',
-                'NDK_DEBUG=1'
+                //'-C',
+                file('jni').absolutePath//, // Change src/main/jni the relative path to your jni source
+                //'-j', Runtime.runtime.availableProcessors(),
+                //'all',
+                //'NDK_DEBUG=1'
     }
 
     task cleanNative(type: Exec, description: 'Clean JNI object files') {
