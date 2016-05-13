@@ -36,9 +36,9 @@ android {
         def ndkDir = android.ndkDirectory
         commandLine "$ndkDir/ndk-build",
                 '-C',
-                file('jni').absolutePath//, // Change src/main/jni the relative path to your jni source
-                //'-j', Runtime.runtime.availableProcessors(),
-                //'all',
+                file('jni').absolutePath, // Change src/main/jni the relative path to your jni source
+                '-j', Runtime.runtime.availableProcessors(),
+                'all'//,
                 //'NDK_DEBUG=1'
     }
 

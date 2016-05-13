@@ -152,7 +152,9 @@ JNIEXPORT void JNICALL Java_demo_hook_hookdemo_MainActivity_doHook(JNIEnv *env, 
 		LOGI("dlopen [%s]", dlerror());
 		return ;
 	}
-	//HookAll();
+	// both export table hook and inline hook can work now
+	//HookAll(); // hook by export table
+	//my_init();
+	init_hook_libc();// hook by inline code
 	LOGI("End");
-	my_init();
 }
