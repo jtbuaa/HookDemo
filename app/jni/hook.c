@@ -51,7 +51,7 @@ int hook_direct(struct hook_t *h, unsigned int addr, void *hookf)
 {
 	int i;
 	
-	LOGI("addr  = %x\n", addr);
+	LOGI("addr = %x\n", addr);
 	LOGI("hookf = %lx\n", (unsigned long)hookf);
 
 	if ((addr % 4 == 0 && (unsigned int)hookf % 4 != 0) || (addr % 4 != 0 && (unsigned int)hookf % 4 == 0))
