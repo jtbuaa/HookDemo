@@ -5,7 +5,7 @@
 extern int my_rmdir_arm(const char *path);
 int my_rmdir_arm(const char *path)
 {
-	return my_rmdir(path);
+    return my_rmdir(path);
 }
 
 extern int my_access_arm(const char* path, int mode);
